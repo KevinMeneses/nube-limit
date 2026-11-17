@@ -1,5 +1,5 @@
 -- CPU en el peor caso: 10 instancias con todo encendido, render de 60 s del premaster de Nube baja.
-local OUT = os.getenv("HOME") .. "/Music/NubeLimit/tests/out"
+local OUT = debug.getinfo(1, "S").source:match("^@(.*)/[^/]*$") .. "/out"
 local AUDIO = os.getenv("HOME") .. "/Music/ClaudeBeats/Mezcla/nube_baja_mezcla_premaster_X20.wav"
 os.execute('mkdir -p "' .. OUT .. '"')
 local f = io.open(OUT .. "/perf.txt", "w")

@@ -1,6 +1,27 @@
+<!-- en -->
 # Nube Limit
 
-Limitador brickwall para REAPER (JSFX, macOS/Windows/Linux), hermano de [Nube Comp](../NubeComp) y los demás Nube.
+A free brickwall limiter for [REAPER](https://www.reaper.fm), written as a JSFX (macOS / Windows / Linux), part of the
+[Nube plugins](https://github.com/KevinMeneses/nube-plugins).
+
+![Nube Limit](docs/captura.png)
+
+Sample-exact brickwall with 4x true-peak detection, lookahead, 5 styles, auto release, soft clip, gain-matched listening, delta listen and a BS.1770 loudness meter (integrated / short-term / momentary LUFS and true peak, ±0.02 LU against the standard). 9 presets. ~4 % CPU.
+
+**Install** — with [ReaPack](https://reapack.com): *Extensions → ReaPack → Import repositories*, paste
+`https://github.com/KevinMeneses/nube-plugins/raw/main/index.xml`, then install **Nube Limit**. Or copy `nube_limit.jsfx`
+into `REAPER/Effects/Nube Limit/` (on macOS `./install.sh` links it). It shows up as **JS: Nube Limit**. The interface is in Spanish.
+
+**How it was made** — designed and built with [Claude Code](https://claude.com/claude-code). Since an AI can't
+listen, every feature is verified by rendering test cases inside REAPER and comparing them with the theory
+(`tests/run.sh`), plus mouse-driven UI tests (`tests/ui_test.py`).
+
+**License** — GPL-3.0-or-later (see `LICENSE`).
+
+---
+
+## Español
+Limitador brickwall para REAPER (JSFX, macOS/Windows/Linux), hermano de [Nube Comp](https://github.com/KevinMeneses/nube-comp) y los demás Nube.
 
 ![Nube Limit](docs/captura.png)
 
@@ -70,3 +91,5 @@ Crea un enlace en `~/Library/Application Support/REAPER/Effects/Nube Limit/`. En
   (lookahead − 1 + 8 muestras) → seguro final al techo.
 - LUFS: filtro K con las fórmulas de libebur128 (a 48 kHz son los coeficientes de la norma), bloques de 100 ms,
   histograma de 0.1 LU para el integrado con compuertas −70 / −10. Solo cuenta mientras suena.
+
+Nota sobre las pruebas: necesitan REAPER y Python con numpy, scipy y soundfile (`NUBE_PY=/ruta/a/python tests/run.sh`). Los casos con voz o música real usan grabaciones propias que no están en el repo (`tests/signals/`); sin ellas esos casos no se pueden correr.

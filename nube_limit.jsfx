@@ -1,6 +1,7 @@
 desc:Nube Limit - limitador brickwall (true peak 4x, lookahead, 5 estilos, recorte suave, LUFS)
 //tags: limiter maximizer brickwall true-peak loudness lufs mastering clipper
-//author: Kev Meneses + Claude
+//author: Kev Meneses + Claude (Claude Code)
+//license: GPL-3.0-or-later
 //version: 1.0.0
 
 slider1:0<0,24,0.1>-Ganancia (dB)
