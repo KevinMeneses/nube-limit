@@ -2,7 +2,7 @@ desc:Nube Limit - limitador brickwall (true peak 4x, lookahead, 5 estilos, recor
 //tags: limiter maximizer brickwall true-peak loudness lufs mastering clipper
 //author: Kev Meneses + Claude (Claude Code)
 //license: GPL-3.0-or-later
-//version: 1.0.0
+//version: 1.1.0
 
 slider1:0<0,24,0.1>-Ganancia (dB)
 slider2:-1<-12,0,0.1>-Techo (dB)
@@ -15,7 +15,7 @@ slider8:1<0,1,1{Apagado (pico de muestra),Encendido (4x)}>-Pico real (true peak)
 slider9:0<0,100,1>-Recorte suave (%)
 slider10:0<0,1,1{Apagado,Encendido}>-Igual volumen (comparar)
 slider11:0<0,1,1{Normal,Solo lo que se quita}>-Escuchar cambios
-slider12:0<0,9,1{-,Master -14 LUFS (streaming),Master fuerte (-9 LUFS),Bus de bateria (punch),Kick - recorte del golpe,808 / bajo - control,Voz - control de picos,Seguridad (solo picos),Agresivo / clipper (trap),Por defecto}>-Cargar preset
+slider12:0<0,18,1{-,Master -14 LUFS (streaming),Master fuerte (-9 LUFS),Bus de bateria (punch),Kick - recorte del golpe,808 / bajo - control,Voz - control de picos,Seguridad (solo picos),Agresivo / clipper (trap),Master trap / rap (fuerte con punch),Master equilibrado (streaming alto),Master suave (podcast / YouTube),Master drill / rage (muy fuerte),Master lo-fi / chill (dinamico),Bus de voces,Snare / clap - mas cuerpo,Clipper puro (golpe de trap),Stem / exportar (-1 dBTP),Por defecto}>-Cargar preset
 slider13:-70<-70,10,0.01>-Lectura: LUFS integrado
 slider14:-100<-100,30,0.01>-Lectura: pico real maximo (dBTP)
 
@@ -201,7 +201,7 @@ lufs_reset();
 a_ug = 1 / gin;
 
 // ---------------------------------------------------------------- presets
-NPRESETS = 9;
+NPRESETS = 18;
 function preset_name(n)
 (
   n == 1 ? "Master -14 LUFS (streaming)" :
@@ -212,7 +212,16 @@ function preset_name(n)
   n == 6 ? "Voz - control de picos" :
   n == 7 ? "Seguridad (solo picos)" :
   n == 8 ? "Agresivo / clipper (trap)" :
-  n == 9 ? "Por defecto" : "";
+  n == 9 ? "Master trap / rap (fuerte con punch)" :
+  n == 10 ? "Master equilibrado (streaming alto)" :
+  n == 11 ? "Master suave (podcast / YouTube)" :
+  n == 12 ? "Master drill / rage (muy fuerte)" :
+  n == 13 ? "Master lo-fi / chill (dinamico)" :
+  n == 14 ? "Bus de voces" :
+  n == 15 ? "Snare / clap - mas cuerpo" :
+  n == 16 ? "Clipper puro (golpe de trap)" :
+  n == 17 ? "Stem / exportar (-1 dBTP)" :
+  n == 18 ? "Por defecto" : "";
 );
 // pr(estilo, ganancia, techo, release, lookahead, auto release, recorte)
 function pr(st, g, c, r, la, ar, cl)
@@ -228,6 +237,15 @@ function load_preset(n)
   n == 6 ? pr(0, 0, -6, 20, 1, 0, 0) :
   n == 7 ? pr(4, 0, -0.3, 200, 5, 1, 0) :
   n == 8 ? pr(3, 8, -0.8, 30, 2, 0, 60);
+  n == 9 ? ( pr(1, 6.5, -1, 80, 3, 1, 15); );
+  n == 10 ? ( pr(0, 5.5, -1, 100, 3, 1, 10); );
+  n == 11 ? ( pr(0, 2, -1, 150, 3, 1, 0); );
+  n == 12 ? ( pr(3, 11, -0.8, 25, 2, 0, 70); );
+  n == 13 ? ( pr(0, 3, -1, 250, 5, 1, 0); );
+  n == 14 ? ( pr(0, 2, -3, 60, 2, 1, 0); );
+  n == 15 ? ( pr(1, 4, -3, 15, 0.5, 0, 20); );
+  n == 16 ? ( pr(3, 4, -0.5, 10, 0, 0, 100); );
+  n == 17 ? ( pr(4, 0, -1, 150, 5, 1, 0); );
   upd = 1;
 );
 

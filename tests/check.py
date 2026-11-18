@@ -102,8 +102,9 @@ scalar("LUFS integrado (musica limitada)", LOG["music"][0], lufs(load("music")),
 scalar("LUFS integrado (bateria)", LOG["drums_st0"][0], lufs(load("drums_st0")), 0.15)
 scalar("medidor de pico real (musica)", LOG["music"][1], truepeak(load("music")), 0.2)
 scalar("medidor de pico real (12 kHz sin 4x)", LOG["isp_sp"][1], truepeak(load("isp_sp")), 0.2)
-for p in range(1, 10):
-    x = load(f"preset{p}"); c = {1: -1, 2: -1, 3: -3, 4: -3.5, 5: -2, 6: -6, 7: -0.3, 8: -0.8, 9: -1}[p]
+for p in range(1, 19):
+    x = load(f"preset{p}"); c = {1: -1, 2: -1, 3: -3, 4: -3.5, 5: -2, 6: -6, 7: -0.3, 8: -0.8, 9: -1, 10: -1, 11: -1,
+                                 12: -0.8, 13: -1, 14: -3, 15: -3, 16: -0.5, 17: -1, 18: -1}[p]
     inrange(f"preset {p}: pico real <= techo {c}", truepeak(x), -60, c + 0.25)
 print("\nFALLAS:", fails)
 sys.exit(1 if fails else 0)

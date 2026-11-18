@@ -44,7 +44,7 @@ local CASES = {
 for st = 0, 4 do CASES[#CASES + 1] = {"drums_st" .. st, "drums.wav", with(B, {[1] = 12, [2] = -1, [5] = st, [6] = 1})} end
 CASES[#CASES + 1] = {"drums_sp", "drums.wav", with(B, {[1] = 12, [2] = -1, [8] = 0})}
 CASES[#CASES + 1] = {"drums_la0", "drums.wav", with(B, {[1] = 12, [2] = -1, [4] = 0})}
-for p = 1, 9 do CASES[#CASES + 1] = {"preset" .. p, "music.wav", {[PRESET] = p}} end
+for p = 1, 18 do CASES[#CASES + 1] = {"preset" .. p, "music.wav", {[PRESET] = p}} end
 
 reaper.Main_OnCommand(40859, 0) -- nueva pestaña
 reaper.GetSetProjectInfo(0, "PROJECT_SRATE", 48000, true)
