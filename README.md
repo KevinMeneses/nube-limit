@@ -6,7 +6,7 @@ A free brickwall limiter for [REAPER](https://www.reaper.fm), written as a JSFX 
 
 ![Nube Limit](docs/captura.png)
 
-Sample-exact brickwall with 4x true-peak detection, lookahead, 5 styles, auto release, soft clip, gain-matched listening, delta listen and a BS.1770 loudness meter (integrated / short-term / momentary LUFS and true peak, ±0.02 LU against the standard). 9 presets. ~4 % CPU.
+Sample-exact brickwall with 4x true-peak detection, lookahead, 5 styles, auto release, soft clip, gain-matched listening, delta listen and a BS.1770 loudness meter (integrated / short-term / momentary LUFS and true peak, ±0.02 LU against the standard). 18 presets. ~4 % CPU.
 
 **Install** — with [ReaPack](https://reapack.com): *Extensions → ReaPack → Import repositories*, paste
 `https://github.com/KevinMeneses/nube-plugins/raw/main/index.xml`, then install **Nube Limit**. Or copy `nube_limit.jsfx`
@@ -79,7 +79,7 @@ Crea un enlace en `~/Library/Application Support/REAPER/Effects/Nube Limit/`. En
   cambios, enlace, pico entre muestras (12 kHz con fase de 45°: real −0.99 con 4x, se pasa sin 4x), release (GR a
   100 ms = e⁻¹), lookahead y latencia compensada, brickwall en los 5 estilos y en música (muestra ≤ techo, real ≤
   techo + 0.2 en 4x), distorsión del auto release, recorte, LUFS contra una implementación independiente de BS.1770
-  (coeficientes oficiales) y los 9 presets. Lee el LUFS y el pico real del plugin desde los parámetros 13–14.
+  (coeficientes oficiales) y los 18 presets. Lee el LUFS y el pico real del plugin desde los parámetros 13–14.
 - `tests/ui_test.py`: 17 pruebas de la interfaz con el mouse. `tests/perf.lua`: CPU.
 
 ## Detalles técnicos
